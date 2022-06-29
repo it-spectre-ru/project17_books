@@ -14,7 +14,13 @@ def get_data():
   soup = BeautifulSoup(response.text, "lxml")
 
   pages_count = int(soup.find("div", class_="pagination-numbers").find_all("a")[-1].text)
-  print(pages_count)
+  
+  for page in range(1, pages_count + 1):
+    url = f"https://www.labirint.ru/genres/2308/?available=1&paperbooks=1&display=table&page={page}"
+
+    response = requests.get(url=url, headers=headers)
+    
+
 
 
 
