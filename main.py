@@ -37,8 +37,16 @@ def get_data():
       except:
         book_author = "Not author name"
 
+      try:
+        #book_publishing = book_data[2].text.strip()
+        book_publishing = book_data[2].find_all("a")
+        book_publishing = ":".join([bp.text for bp in book_publishing])
+      except:
+        book_publishing = "Not publishing data"
+
       print(book_title)
       print(book_author)
+      print(book_publishing)
 
       print("#" * 15)
 
