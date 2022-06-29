@@ -115,17 +115,17 @@ def get_data():
       with open(f"labirint_{cur_time}.csv", "a") as file:
         writer = csv.writer(file)
 
-      writer.writerow(
-        (
-          book_title,
-          book_author,
-          book_publishing,
-          book_new_price,
-          book_old_price,
-          book_sale,
-          book_status
+        writer.writerow(
+          (
+            book_title,
+            book_author,
+            book_publishing,
+            book_new_price,
+            book_old_price,
+            book_sale,
+            book_status,
+          )
         )
-      )
     
     print(f"Done {page} / {pages_count}")
     time.sleep(1)
