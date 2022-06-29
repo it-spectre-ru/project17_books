@@ -49,10 +49,16 @@ def get_data():
       except:
         book_new_price = "Not price data"
 
+      try:
+        book_old_price = book_data[3].find("span", class_="price-gray").text.strip().replace(" ", "")
+      except:
+        book_old_price = "Not old price data"
+
       print(book_title)
       print(book_author)
       print(book_publishing)
       print(book_new_price)
+      print(book_old_price)
 
       print("#" * 15)
 
