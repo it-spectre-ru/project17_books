@@ -60,7 +60,10 @@ def get_data():
         book_sale = "Not discount"
 
         
-      
+      try:
+        book_status = book_data[-1].text.strip()
+      except:
+        book_status = "Not status data"
 
         
       print(book_title)
@@ -69,6 +72,7 @@ def get_data():
       print(book_new_price)
       print(book_old_price)
       print(book_sale)
+      print(book_status)
 
       print("#" * 15)
 
