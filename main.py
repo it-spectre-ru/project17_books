@@ -32,7 +32,15 @@ def get_data():
       except:
         book_title = "Not books name"
 
+      try:
+        book_author = book_data[1].text.strip()
+      except:
+        book_author = "Not author name"
+
       print(book_title)
+      print(book_author)
+
+      print("#" * 15)
 
 
 
