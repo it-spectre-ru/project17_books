@@ -45,20 +45,30 @@ def get_data():
         book_publishing = "Not publishing data"
 
       try:
-        book_new_price = book_data[3].find("div", class_="price").find("span").find("span").text.strip().replace(" ", "")
+        book_new_price = int(book_data[3].find("div", class_="price").find("span").find("span").text.strip().replace(" ", ""))
       except:
         book_new_price = "Not price data"
 
       try:
-        book_old_price = book_data[3].find("span", class_="price-gray").text.strip().replace(" ", "")
+        book_old_price = int(book_data[3].find("span", class_="price-gray").text.strip().replace(" ", ""))
       except:
         book_old_price = "Not old price data"
 
+      try:
+        book_sale = round(((book_old_price - book_new_price) / book_old_price) * 100)
+      except:
+        book_sale = "Not discount"
+
+        
+      
+
+        
       print(book_title)
       print(book_author)
       print(book_publishing)
       print(book_new_price)
       print(book_old_price)
+      print(book_sale)
 
       print("#" * 15)
 
