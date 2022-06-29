@@ -19,7 +19,9 @@ def get_data():
     url = f"https://www.labirint.ru/genres/2308/?available=1&paperbooks=1&display=table&page={page}"
 
     response = requests.get(url=url, headers=headers)
-    
+    soup = BeautifulSoup(response.text, "lxml")
+
+    book_items = soup.find("tbody", class_="products-table__body").find_all("tr")
 
 
 
