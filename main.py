@@ -15,13 +15,24 @@ def get_data():
 
   pages_count = int(soup.find("div", class_="pagination-numbers").find_all("a")[-1].text)
   
-  for page in range(1, pages_count + 1):
+  # for page in range(1, pages_count + 1):
+  for page in range(1, 2):
     url = f"https://www.labirint.ru/genres/2308/?available=1&paperbooks=1&display=table&page={page}"
 
     response = requests.get(url=url, headers=headers)
     soup = BeautifulSoup(response.text, "lxml")
 
     book_items = soup.find("tbody", class_="products-table__body").find_all("tr")
+
+    for bi in book_items:
+      book_data = bi.find_all("td")
+
+      try:
+        book_title = book_data[0].find("a").text.strip()
+      except:
+        book_title = "Not books name"
+
+      print(book_title)
 
 
 
