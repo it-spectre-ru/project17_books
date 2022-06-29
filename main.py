@@ -44,9 +44,15 @@ def get_data():
       except:
         book_publishing = "Not publishing data"
 
+      try:
+        book_new_price = book_data[3].find("div", class_="price").find("span").find("span").text.strip().replace(" ", "")
+      except:
+        book_new_price = "Not price data"
+
       print(book_title)
       print(book_author)
       print(book_publishing)
+      print(book_new_price)
 
       print("#" * 15)
 
